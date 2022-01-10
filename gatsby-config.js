@@ -50,6 +50,19 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 600,
+            },
+          },
+        ],
+      },
+    },
     // -----Updated Plugin details-----
   ],
 }

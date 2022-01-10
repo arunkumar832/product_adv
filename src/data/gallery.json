@@ -4,27 +4,27 @@
         "alt": "Data Analysis",
         "name": "Analyse the Data",
         "button": "How to Analyse",
-        "button_url": "https://en.wikipedia.org/wiki/Data_analysis"
+        "button_url": "/how_to_analyse"
     },
     {
         "img": "../assets/images/gallery/coding.jpg",
         "alt": "Coding",
         "name": "Coding",
         "button": "How to Code",
-        "button_url": "https://www.python.org/about/gettingstarted/"
+        "button_url": "/how_to_coding"
     },
     {
         "img": "../assets/images/gallery/knowledge_exchange.jpg",
         "alt": "Knowledge Exchange",
         "name": "Knowledge Exchange",
         "button": "How to Exchange Knowledge",
-        "button_url": "https://en.wikipedia.org/wiki/Knowledge_transfer"
+        "button_url": "/how_to_exchange_knowledge"
     },
     {
         "img": "../assets/images/gallery/celebrate.jpg",
         "alt": "Success Celebration",
         "name": "Celebrate the Success",
-        "button": "How to Celebrate",
-        "button_url": "https://www.verywellmind.com/healthy-ways-to-celebrate-success-4163887"
+        "button": "How to Celebrate Success",
+        "button_url": "/how_to_celebrate_success"
     }
 ]

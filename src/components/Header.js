@@ -29,7 +29,7 @@ export default Header
 
 const Nav = styled.nav`
   background: transparent;
-  height: 88px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);

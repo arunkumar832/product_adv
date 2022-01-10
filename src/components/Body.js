@@ -43,7 +43,7 @@ const BodyContainer = styled.div`
         background: linear-gradient(
             180deg,
             rgba(0, 0, 0, 0.2) 0%,
-            rgba(0, 0, 0, 0.0.6) 100%
+            rgba(0, 0, 0, 0.6) 100%
             ),
             linear-gradient(
             180deg,
@@ -79,13 +79,13 @@ const BodyItems = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: cneter;
+    text-align: center;
     height: 100vh;
     max-height: 100%;
-    paddingl: 0;
+    padding: 0;
     color: #fff;
     line-height: 1.1;
-    weight: bold;
+    font-weight: bold;
 `
 const BodyH1 = styled.h1`
     font-size: clamp(1.5rem, 6vw, 4rem);

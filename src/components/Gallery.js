@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Button } from "./Button"
 import { ImLocation } from 'react-icons/im'
 
@@ -30,12 +30,13 @@ const Gallery = ({heading}) => {
     function getGallery(data){
         const galleryArray = []
         data.allGalleryJson.edges.forEach((item, index) => {
+            const image = getImage(item.node.img.childImageSharp.gatsbyImageData);
             galleryArray.push(
                 <ProductCard key={index}>
-                    <GatsbyImage 
+                    <ProductImage
                         alt={item.node.alt}
-                        image={item.node.img.childImageSharp.gatsbyImageData}
-                        className='ProductImage'
+                        image={image}
+                        loading="eager"
                     />
                     <ProductInfo>
                         <TextWrap>
@@ -97,21 +98,18 @@ const ProductCard = styled.div`
     position: relative;
     broder-radius: 10px;
     transition: 0.2s ease;
-    .ProductImage{
-        height: 100%;
-        max-width: 100%;
-        border-radius: 10px;
-        filter: brightness(70%);
-        transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+`
+const ProductImage = styled(GatsbyImage)`
+    height: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    filter: brightness(70%);
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-        &:hover {
-            filter: brightness(100%);
-        }
+    &:hover {
+        filter: brightness(100%);
     }
 `
-// const ProductImage = styled(GatsbyImage)`
-    
-// `
 const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;

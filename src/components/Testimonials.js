@@ -58,7 +58,12 @@ const Testimonials = () => {
                 </ColumnOne>
                 <ColumnTwo>
                     {data.allTestimonialsJson.edges.map((item, index) => (
-                        <Images key={index} image={item.node.img.childImageSharp.gatsbyImageData} />
+                        <Images
+                            key={index}
+                            image={item.node.img.childImageSharp.gatsbyImageData}
+                            alt={item.node.name}
+                            loading="eager"
+                        />
                     ))}
                 </ColumnTwo>
             </ContentWrapper>
@@ -109,10 +114,10 @@ const Testimonial = styled.div`
         margin-bottom: 1rem;
         font-size: 1.5rem;
         font-style: italic;
-    };
+    }
     p {
         color: #3b3b3b;
-    };
+    }
 `
 const ColumnTwo = styled.div`
     display: grid;

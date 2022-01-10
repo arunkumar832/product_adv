@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 export const Button = styled(Link)`
     background: ${({ primary }) => (primary ? '#F26A2E' : '#077BF1')};
     white-space: nowrap;
-    padding: ${({ big }) => (big ? '16px 48px' : '10px 32px')};
+    padding: ${({ big }) => (big ? '16px 40px' : '10px 32px')};
     color: #fff;
     font-size: ${({ big }) => (big ? '20px' : '16px')};
     outline: none;
@@ -17,6 +17,6 @@ export const Button = styled(Link)`
 
     &:hover {
         background: ${({ primary }) => (primary ? '#077BF1': '#F26A2E')};
-        transform: translateY(-3px);
+        transform: translateY(-2px);
     }
 `
