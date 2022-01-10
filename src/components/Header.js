@@ -12,14 +12,11 @@ const Header = () => {
       <Bars />
       <NavMenu>
           { menuData.map((item, index) => (
-              <NavLink to={item.link} key={index}>
-                  {item.title}
-              </NavLink>
+              <NavLink to={item.link} key={index}> {item.title} </NavLink>
           ))}
       </NavMenu>
       <NavBtn>
-        <Button primary="true" round="true" to="/something">
-          Do Something</Button>
+        <Button primary="true" round="true" to="/something"> Do Something </Button>
       </NavBtn>
     </Nav>
   )
