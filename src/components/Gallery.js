@@ -9,32 +9,28 @@ const Gallery = ({heading}) => {
     const data = useStaticQuery(graphql`
     query GalleryQuery {
         allGalleryJson {
-          edges {
-            node {
-              alt
-              button
-              button_url
-              name
-              img {
-                childImageSharp {
-                    gatsbyImageData(
-                        layout: FULL_WIDTH
-                    )
+            nodes {
+                alt
+                button
+                button_url
+                name
+                img {
+                    childImageSharp {
+                        gatsbyImageData(layout: FULL_WIDTH)
+                    }
                 }
-              }
             }
-          }
         }
       }
     `)
     function getGallery(data){
         const galleryArray = []
-        data.allGalleryJson.edges.forEach((item, index) => {
-            const image = getImage(item.node.img.childImageSharp.gatsbyImageData);
+        data.allGalleryJson.nodes.forEach((item, index) => {
+            const image = getImage(item.img.childImageSharp.gatsbyImageData);
             galleryArray.push(
                 <ProductCard key={index}>
                     <ProductImage
-                        alt={item.node.alt}
+                        alt={item.alt}
                         image={image}
                         loading="eager"
                     />
@@ -42,12 +38,12 @@ const Gallery = ({heading}) => {
                         <TextWrap>
                             <ImLocation/>
                             <ProductTitle>
-                                {item.node.name}
+                                {item.name}
                             </ProductTitle>
                         </TextWrap>
-                        <Button to={item.node.button_url} primary="true" round="true"
+                        <Button to={item.button_url} primary="true" round="true"
                         css={`position: absolute; top: 420px; font-size: 14px;`}>
-                            {item.node.button}</Button>
+                            {item.button}</Button>
                     </ProductInfo>
                 </ProductCard>
             )

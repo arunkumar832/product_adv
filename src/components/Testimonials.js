@@ -7,28 +7,24 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const Testimonials = () => {
     const data = useStaticQuery(graphql`
-    query TestimonialsQuery {
-        allTestimonialsJson(sort: {fields: img___modifiedTime, order: DESC}) {
-          edges {
-            node {
-              name
-              msg
-              img {
-                childImageSharp {
-                    gatsbyImageData(
-                        layout: FULL_WIDTH
-                    )
+        query TestimonialsQuery {
+            allTestimonialsJson(sort: {fields: img___modifiedTime, order: DESC}) {
+                nodes {
+                    name
+                    msg
+                    img {
+                        childImageSharp {
+                            gatsbyImageData(layout: FULL_WIDTH)
+                        }
+                    }
                 }
-              }
             }
-          }
-        }
-      }          
+        }          
     `
     )
     function getTestimonials(data){
             const testimonialsArray = []
-            data.allTestimonialsJson.edges.forEach((item, index) => {
+            data.allTestimonialsJson.nodes.forEach((item, index) => {
                 testimonialsArray.push(
                     <Testimonial key={index}>
                         <IoMdCheckmarkCircleOutline css={`
@@ -36,8 +32,8 @@ const Testimonials = () => {
                             font-size: 2rem;
                             margin-bottom: 1rem;
                             `}/>
-                        <h3>{item.node.name}</h3>
-                        <p>{item.node.msg}</p>
+                        <h3>{item.name}</h3>
+                        <p>{item.msg}</p>
                     </Testimonial>
                 )
         });
@@ -57,11 +53,11 @@ const Testimonials = () => {
                     {getTestimonials(data)}
                 </ColumnOne>
                 <ColumnTwo>
-                    {data.allTestimonialsJson.edges.map((item, index) => (
+                    {data.allTestimonialsJson.nodes.map((item, index) => (
                         <Images
                             key={index}
-                            image={item.node.img.childImageSharp.gatsbyImageData}
-                            alt={item.node.name}
+                            image={item.img.childImageSharp.gatsbyImageData}
+                            alt={item.name}
                             loading="eager"
                         />
                     ))}
