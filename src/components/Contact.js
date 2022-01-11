@@ -9,7 +9,9 @@ export const Contact = () => {
             <ContactContent>
                 <h1>Want to listen updates from us</h1>
                 <p>Submit your email-id to subscibe the latest news about us</p>
-                <form name="slact_team_contact_form" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                <form name="slack_team_contact_form" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="bot-field" />
+                    <input type="hidden" name="form-name" value="slack_team_contact_form" />
                     <FormWrap>
                         <label htmlFor='name'>
                             <input type="text" placeholder='Enter your name' id="name" />
@@ -17,7 +19,7 @@ export const Contact = () => {
                         <label htmlFor='email'>
                             <input type="email" placeholder='Enter your email' id="email" />
                         </label>
-                        <Button type="submit" to="#" as="button" primary round
+                        <Button type="submit" as="button" primary round
                             css={`
                                 height: 48px;
                                 
