@@ -17,7 +17,7 @@ export const Contact = () => {
                         <label htmlFor='email'>
                             <input type="email" placeholder='Enter your email' id="email" />
                         </label>
-                        <Button type="submit" to="#" as="button" primary round
+                        <Button type="submit" as="button" primary round
                             css={`
                                 height: 48px;
                                 
