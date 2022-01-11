@@ -25,12 +25,12 @@ export default Stats
 
 const StatsContainer = styled.div`
     width: 100%;
-    background: #fff;
+    background: beige;
     color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4rem calc((100vw - 1300px)/2);
+    padding: 2rem calc((100vw - 1000px)/2);
 `
 const Heading = styled.h1`
     text-align: start;

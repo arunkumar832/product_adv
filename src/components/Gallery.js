@@ -42,7 +42,7 @@ const Gallery = ({heading}) => {
                             </ProductTitle>
                         </TextWrap>
                         <Button to={item.button_url} primary="true" round="true"
-                        css={`position: absolute; top: 420px; font-size: 14px;`}>
+                        css={`position: absolute; top: 320px; font-size: 12px;`}>
                             {item.button}</Button>
                     </ProductInfo>
                 </ProductCard>
@@ -62,9 +62,15 @@ export default Gallery
 
 const ProductsContainer = styled.div`
     min-height: 100vh;
-    padding: 5rem calc((100vw - 1300px)/2);
+    padding: 2rem calc((100vw - 1100px)/2);
     background: beige;
     color: #fff;
+    @media screen and (max-width: 1200px){
+        padding: 2rem calc((100vw - 700px)/2);
+    }
+    @media screen and (max-width: 768px){
+        padding: 2rem calc((100vw - 300px)/2);
+    }
 `
 const ProductsHeading = styled.div`
     font-size: clamp(1.2rem, 5vw, 3rem);
@@ -83,14 +89,14 @@ const ProductsWrapper = styled.div`
         grid-template-columns: 1fr 1fr;
     }
 
-    @media screen and (max-width: 868px){
+    @media screen and (max-width: 768px){
         grid-template-columns: 1fr;
     }
 `
 const ProductCard = styled.div`
     line-height: 2;
     width: 100%;
-    height: 500px;
+    height: 420px;
     position: relative;
     broder-radius: 10px;
     transition: 0.2s ease;
@@ -110,10 +116,10 @@ const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;
     aligh-items: flex-start;
-    padding: 0 2rem;
+    padding: 0 1rem;
 
     @media screen and (max-width: 280px){
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
 `
 const TextWrap = styled.div`

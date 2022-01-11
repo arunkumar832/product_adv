@@ -71,10 +71,10 @@ export default Testimonials
 
 const TestimonialsContainer = styled.div`
     width: 100%;
-    background: lightblue;
+    background: darkkhaki;
     color: #000;
-    padding: 5rem calc((100vw - 1300px)/2);
-    height: 100%;
+    padding: 2rem calc((100vw - 1000px)/2);
+    height: 50%;
 `
 const TopLine = styled.p`
     color: #077bf1;

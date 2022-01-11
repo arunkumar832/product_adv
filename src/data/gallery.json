@@ -15,10 +15,10 @@
     },
     {
         "img": "../assets/images/gallery/knowledge_exchange.jpg",
-        "alt": "Knowledge Exchange",
-        "name": "Knowledge Exchange",
-        "button": "How to Exchange Knowledge",
-        "button_url": "/how_to_exchange_knowledge"
+        "alt": "Knowledge Share",
+        "name": "Knowledge Share",
+        "button": "How to share Knowledge",
+        "button_url": "/how_to_share_knowledge"
     },
     {
         "img": "../assets/images/gallery/celebrate.jpg",
