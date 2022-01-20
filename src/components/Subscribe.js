@@ -18,7 +18,7 @@ class Subscribe extends React.Component {
         const result = await addToMailchimp(this.state.email, { NAME: this.state.name.toUpperCase() })
         if (result.result === "error"){
             if (result.msg.includes("already subscribed")){
-                this.setState({message: `${this.state.name.toUpperCase()}, YOU'VE ALREADY SUBSCRIBED!!!`})
+                this.setState({message: `${this.state.name ? this.state.name.toUpperCase(): "Hi"}, YOU'VE ALREADY SUBSCRIBED!!!`})
             }
             else {
                 this.setState({message: result.msg.toUpperCase() + "!!!"})
