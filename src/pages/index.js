@@ -6,6 +6,8 @@ import Testimonials from "../components/Testimonials"
 import Gallery from "../components/Gallery"
 import Stats from "../components/Stats"
 import Subscribe from "../components/Subscribe"
+import Footer from "../components/Footer"
+
 
 const IndexPage = () => (
   <Layout>
@@ -15,6 +17,7 @@ const IndexPage = () => (
     <Testimonials />
     <Stats />
     <Subscribe />
+    <Footer />
   </Layout>
 )
 

@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
-export const Footer = () => {
+const Footer = () => {
     return (
         <FooterContainer>
             <FooterLinksWrapper>
@@ -38,6 +38,7 @@ export const Footer = () => {
     )
 }
 
+export default Footer
 
 const FooterContainer = styled.div`
     padding: 2rem calc((100vw - 900px)/2);

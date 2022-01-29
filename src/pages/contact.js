@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import * as React from "react"
-import { FooBarForm } from "../components/FooBarForm"
 import Layout from "../components/layout"
+import PostToPython from "../components/PostToPython"
 
 
 const ContactUs = () => (
@@ -9,7 +9,7 @@ const ContactUs = () => (
         <Layout>
             <h1>Hi Slack Team, this is Contact-Us page</h1>
             <Link to="/"> Go To Home Page </Link>
-            <FooBarForm />
+            <PostToPython />
         </Layout>
     </div>
 )
