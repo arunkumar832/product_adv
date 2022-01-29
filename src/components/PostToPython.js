@@ -11,7 +11,10 @@ export const PostToPython = () => {
     const postToPython = async(e) => {
         const details = {"user": usernameRef.current.value, "password": passwordRef.current.value}
         e.preventDefault()
-        const response = await axios.post(`http://${window.location.hostname}:4000/save_args`, details)
+        const response = await axios.post(`//${window.location.hostname}:4000/save_args`,
+            details,
+            {headers: {"Access-Control-Allow-Origin": true}}
+        )
         if (response.data.error){
             setResp({"output": response.data.error, "data": response.data})
         }
@@ -23,20 +26,20 @@ export const PostToPython = () => {
         <div>
             <br />
             <form onSubmit={postToPython}>
-                <label>Username: <input ref={usernameRef} style={{
-                        "width": "5cm",
-                        "padding": "10px 20px",
-                        "box-sizing": "border-box",
-                        "border": "none",
-                        "margin": "8px 0"
+                <label>Username: <input ref={usernameRef} required style={{
+                        width: "5cm",
+                        padding: "10px 20px",
+                        boxSizing: "border-box",
+                        border: "none",
+                        margin: "8px 0"
                 }}/></label>
                 <br />
-                <label>Password: <input ref={passwordRef} type="password" style={{
-                        "width": "5cm",
-                        "padding": "10px 20px",
-                        "box-sizing": "border-box",
-                        "border": "none",
-                        "margin": "8px 7px"
+                <label>Password: <input ref={passwordRef} required type="password" style={{
+                        width: "5cm",
+                        padding: "10px 20px",
+                        boxSizing: "border-box",
+                        border: "none",
+                        margin: "8px 7px"
                 }}/></label>
                 <br />
                 <i>Try with username and password as admin, admin</i><br /><br />
