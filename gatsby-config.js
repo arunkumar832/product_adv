@@ -1,7 +1,7 @@
 module.exports = {
   proxy: {
     prefix: "/save_args",
-    url: "https://laughing-sammet-8939ab.netlify.app/:4000",
+    url: "https://laughing-sammet-8939ab.netlify.app:4000",
   },
   siteMetadata: {
     title: `Product Advertisement`,

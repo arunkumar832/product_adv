@@ -57,5 +57,5 @@
   "browser": {
     "child_process": false
   },
-  "proxy": "https://laughing-sammet-8939ab.netlify.app/:4000"
+  "proxy": "https://laughing-sammet-8939ab.netlify.app:4000"
 }
