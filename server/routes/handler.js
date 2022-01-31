@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const { spawn } = require("child_process");
+const cors = require("cors")
 
 router.get('/details', (req, res) => {
-    console.clear()
-    console.log(`User: ${req.body.title}`)
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const dets = {
         "name": "Arun",
         "class": "10th",
@@ -12,7 +13,7 @@ router.get('/details', (req, res) => {
     };
     console.log("This is output from Nodejs: %s", JSON.stringify(dets))
     res.end(JSON.stringify(dets));
-});
+}, cors());
 
 router.post("/save_args", (req, res) => {
     const command_exec = spawn("python3", ["./server/login.py", req.body.user, req.body.password]);
