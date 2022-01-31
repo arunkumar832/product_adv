@@ -4,8 +4,6 @@ const { spawn } = require("child_process");
 const cors = require("cors")
 
 router.get('/details', (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const dets = {
         "name": "Arun",
         "class": "10th",
