@@ -4,9 +4,7 @@ const bodyParser = require("body-parser")
 
 const app = express();
 app.use(cors({
-  origin: "https://laughing-sammet-8939ab.netlify.app:4000",
-  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-  methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  origin: "https://laughing-sammet-8939ab.netlify.app:4000"
 }));
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,4 +15,4 @@ app.use("/", routesHandler)
 
 const port = process.env.PORT || 4000;
 
-app.listen(port, () => console.log(`Server is running on PORT: ${port}`));
+app.listen(port, `laughing-sammet-8939ab.netlify.app`, () => console.log(`Server is running on PORT: ${port}`));
