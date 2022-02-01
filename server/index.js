@@ -6,7 +6,7 @@ const app = express();
 app.use(cors({
   origin: "*",
   allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-  methods: "GET, POST, PUT, PATCH, DELETE"
+  methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS"
 }));
 
 app.use(bodyParser.urlencoded({extended: true}));
