@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 
 const app = express();
 app.use(cors({
-  origin: "*",
+  origin: "https://laughing-sammet-8939ab.netlify.app:4000",
   allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
   methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS"
 }));
