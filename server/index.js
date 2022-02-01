@@ -15,4 +15,4 @@ app.use("/", routesHandler)
 
 const port = process.env.PORT || 4000;
 
-app.listen(port, `laughing-sammet-8939ab.netlify.app`, () => console.log(`Server is running on PORT: ${port}`));
+app.listen(port, () => console.log(`Server is running on PORT: ${port}`));
