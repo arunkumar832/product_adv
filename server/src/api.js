@@ -18,6 +18,6 @@ const routesHandler = require("../routes/handler.js");
 
 // app.listen(port, () => console.log(`Server is running on PORT: ${port}`));
 
-app.use("/.netlify/functions/api", routesHandler);
+app.use("/api", routesHandler);
 
 module.exports.handler = serverless(app);
