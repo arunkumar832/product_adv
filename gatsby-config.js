@@ -1,8 +1,8 @@
 module.exports = {
-  proxy: {
-    prefix: "/save_args",
-    url: "https://laughing-sammet-8939ab.netlify.app:4000",
-  },
+  // proxy: {
+  //   prefix: "/save_args",
+  //   url: "https://laughing-sammet-8939ab.netlify.app:4000",
+  // },
   siteMetadata: {
     title: `Product Advertisement`,
     description: `This dummy website is developed to test gatsby (static site generator), netlify (CDN).`,
@@ -32,7 +32,7 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     // -----Updated Plugin details-----
-    `gatsby-plugin-nodejs`,
+    // `gatsby-plugin-nodejs`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,

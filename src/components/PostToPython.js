@@ -11,7 +11,7 @@ export const PostToPython = () => {
     const postToPython = async(e) => {
         const details = {"user": usernameRef.current.value, "password": passwordRef.current.value}
         e.preventDefault()
-        const response = await axios.post(`//${window.location.hostname}:4000/save_args`, details)
+        const response = await axios.post(`/.netlify/functions/api/save_args`, details)
         if (response.data.error){
             setResp({"output": response.data.error, "data": response.data})
         }
