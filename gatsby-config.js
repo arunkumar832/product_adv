@@ -1,8 +1,6 @@
+const { createProxyMiddleware } = require("http-proxy-middleware")
+
 module.exports = {
-  // proxy: {
-  //   prefix: "/save_args",
-  //   url: "https://laughing-sammet-8939ab.netlify.app:4000",
-  // },
   siteMetadata: {
     title: `Product Advertisement`,
     description: `This dummy website is developed to test gatsby (static site generator), netlify (CDN).`,
@@ -63,5 +61,20 @@ module.exports = {
       }
     }
     // -----Updated Plugin details-----
-  ]
+  ],
+  // Middle ware for Netlify Functions to avoid CORs issue (Only for local development)
+  // Note: For production we no need to configure proxy, since functions exists in gatsby app (/.netlify/functions/),
+  // but for local development server is running on http://localhost:9000 and gatsby running on http://localhost:8000
+  // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/api",
+      createProxyMiddleware({
+        target: "http://localhost:9000",
+        pathRewrite: {
+          "/.netlify/functions/api/:splat": "/api/*"
+        },
+      })
+    )
+  }
 }

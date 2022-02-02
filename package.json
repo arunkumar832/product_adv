@@ -21,7 +21,9 @@
     "gatsby-transformer-json": "^4.4.0",
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
+    "http-proxy-middleware": "^2.0.2",
     "netlify-cli": "^8.15.3",
+    "npm-run-all": "^4.1.5",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -37,13 +39,14 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "./server/node_modules/.bin/netlify-lambda build server/src; gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "export NODE_OPTIONS=--openssl-legacy-provider; server/node_modules/.bin/netlify-lambda serve server/src",
+    "build": "gatsby build && server/node_modules/.bin/netlify-lambda build server/src",
+    "build:app": "gatsby build",
+    "build:lambda": "server/node_modules/.bin/netlify-lambda build server/src",
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
