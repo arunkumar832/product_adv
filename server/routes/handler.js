@@ -1,6 +1,8 @@
 const express = require("express");
+
 const router = express.Router();
 const { spawn } = require("child_process");
+const path = require("path");
 
 router.get('/details', (req, res) => {
     const dets = {
@@ -13,7 +15,15 @@ router.get('/details', (req, res) => {
 });
 
 router.post("/save_args", (req, res) => {
-    const command_exec = spawn("python3", ["./server/login.py", req.body.user, req.body.password]);
+    var python_file = "external_files/login.py";
+    if (process.cwd().split("/").pop() === "server"){
+        python_file = path.join(process.cwd(), python_file)
+    }
+    else {
+        python_file = path.join(process.cwd(),"server", python_file)
+    };
+
+    const command_exec = spawn("python3", [python_file, req.body.user, req.body.password]);
 
     command_exec.stdout.on("data", (data) => {
         res.send(data);
