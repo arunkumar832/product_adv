@@ -1,28 +1,7 @@
-const express = require("express");
+import { spawn } from "child_process";
 
-const router = express.Router();
-const { spawn } = require("child_process");
-const path = require("path");
-
-router.get('/details', (req, res) => {
-    const dets = {
-        "name": "Arun",
-        "class": "10th",
-        "subject": "English"
-    };
-    console.log("This is output from Nodejs: %s", JSON.stringify(dets))
-    res.end(JSON.stringify(dets));
-});
-
-router.post("/save_args", (req, res) => {
-    var python_file = "external_files/login.py";
-    if (process.cwd().split("/").pop() === "server"){
-        python_file = path.join(process.cwd(), python_file)
-    }
-    else {
-        python_file = path.join(process.cwd(),"server", python_file)
-    };
-
+export default function Login (req, res) {
+    var python_file = "src/external_files/login.py";
     const command_exec = spawn("python3", [python_file, req.body.user, req.body.password]);
 
     command_exec.stdout.on("data", (data) => {
@@ -48,6 +27,4 @@ router.post("/save_args", (req, res) => {
             res.send(`Process Exit with signal: ${signal}`);
         }
     });
-});
-
-module.exports = router;
+  }

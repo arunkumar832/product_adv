@@ -1,7 +1,0 @@
-[build]
-    command = "npx kill-port 9000 8000 && npm run clean && npm run build"
-    functions = "server/functions"
-[[redirects]]
-    from = "/api/*"
-    to = "/.netlify/functions/api/:splat"
-    status = 200

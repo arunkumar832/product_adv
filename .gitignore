@@ -37,7 +37,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-server/functions/
 
 # Typescript v1 declaration files
 typings/
@@ -70,6 +69,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# Local Netlify folder
-.netlify
