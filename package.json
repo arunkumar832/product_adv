@@ -6,7 +6,9 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
+    "body-parser": "^1.19.1",
     "child_process": "^1.0.2",
+    "express": "^4.17.2",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
@@ -23,12 +25,14 @@
     "gatsby-transformer-sharp": "^4.4.0",
     "http-proxy-middleware": "^2.0.2",
     "netlify-cli": "^8.15.3",
+    "netlify-lambda": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "serverless-http": "^2.7.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
@@ -39,13 +43,12 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "run-p start:**",
-    "start:app": "npm run develop",
-    "start:lambda": "export NODE_OPTIONS=--openssl-legacy-provider; server/node_modules/.bin/netlify-lambda serve server/src",
-    "build": "gatsby build && server/node_modules/.bin/netlify-lambda build server/src",
+    "lambda": "export NODE_OPTIONS=--openssl-legacy-provider && ./node_modules/.bin/netlify-lambda serve server/src",
+    "start": "npm-run-all -p lambda start:app",
+    "start:app": "gatsby develop",
+    "build": "npm-run-all -s build:app lambda",
     "build:app": "gatsby build",
-    "build:lambda": "server/node_modules/.bin/netlify-lambda build server/src",
+    "develop": "gatsby develop",
     "clean": "gatsby clean"
   },
   "repository": {
