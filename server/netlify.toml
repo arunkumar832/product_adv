@@ -1,5 +1,5 @@
 [build]
-    command = "npm run build"
+    command = "npx kill-port 9000 && npm run build"
     functions = "functions"
 [[redirects]]
     from = "/api/*"

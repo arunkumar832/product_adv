@@ -39,13 +39,12 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "run-p start:**",
-    "start:app": "npm run develop",
-    "start:lambda": "export NODE_OPTIONS=--openssl-legacy-provider; server/node_modules/.bin/netlify-lambda serve server/src",
-    "build": "gatsby build && server/node_modules/.bin/netlify-lambda build server/src",
+    "lambda": "export NODE_OPTIONS=--openssl-legacy-provider && server/node_modules/.bin/netlify-lambda serve server/src",
+    "start": "npm-run-all -p lambda start:app",
+    "start:app": "gatsby develop",
+    "build": "npm-run-all -s build:app lambda",
     "build:app": "gatsby build",
-    "build:lambda": "server/node_modules/.bin/netlify-lambda build server/src",
+    "develop": "gatsby develop",
     "clean": "gatsby clean"
   },
   "repository": {

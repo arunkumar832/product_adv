@@ -4,8 +4,8 @@
   "description": "backend server for gatsby app",
   "main": "src/app.js",
   "scripts": {
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider; ./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && ./node_modules/.bin/netlify-lambda serve src",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && ./node_modules/.bin/netlify-lambda build src"
   },
   "author": "Arunkumar G",
   "license": "ISC",
