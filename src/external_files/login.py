@@ -12,7 +12,7 @@ def authenticate():
         else:
             response["error"] = "Please check username and password"
     else:
-        response["error"] = "Kindly Provide username and password as command line arguments"
+        response["error"] = "Kindly Provide only username and password"
     print(json.dumps(response))
 
 authenticate()
