@@ -1,2 +1,8 @@
+[build]
+    functions = "lambda"
+    command = "npm run build"
+    publish = "build"
+
 [build.environment]
     PYTHON_VERSION = "3.7"
+    NODE_OPTIONS = "--openssl-legacy-provider"

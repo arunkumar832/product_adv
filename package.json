@@ -21,6 +21,9 @@
     "gatsby-transformer-json": "^4.4.0",
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
+    "http-proxy-middleware": "^2.0.3",
+    "netlify-cli": "^9.0.2",
+    "netlify-lambda": "^2.0.15",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -36,9 +39,9 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "netlify-lambda build .netlify/functions && gatsby develop",
+    "build": "netlify-lambda build .netlify/functions && gatsby build",
+    "develop": "netlify-lambda build .netlify/functions && gatsby develop",
     "clean": "gatsby clean"
   },
   "repository": {
