@@ -32,26 +32,46 @@ export async function handler(event, context) {
     const command_exec = spawn("python3", [python_file, req.body.user, req.body.password], { stdio: 'inherit' });
 
     command_exec.stdout.on("data", (data) => {
-        res.send(data);
+        // res.send(data);
+        return {
+            statusCode: 200,
+            body: data
+        }
     });
 
     command_exec.stderr.on("data", (data) => {
-        res.send(`Stderr: ${data}`);
+        // res.send(`Stderr: ${data}`);
+        return {
+            statusCode: 500,
+            body: `Stderr: ${data}`
+        }
     });
 
     command_exec.on("error", (error) => {
-        console.log(`Error : ${error}`);
-        res.send(`Error: ${data}`);
+        // console.log(`Error : ${error}`);
+        // res.send(`Error: ${data}`);
+        return {
+            statusCode: 500,
+            body: `Error: ${error}`
+        }
     });
 
     command_exec.on("exit", (code, signal) => {
         if (code) {
-            console.log(`Process Exit with code: ${code}`);
-            res.send(`Process Exit with code: ${code}`);
+            // console.log(`Process Exit with code: ${code}`);
+            // res.send(`Process Exit with code: ${code}`);
+            return {
+                statusCode: 500,
+                body: `Process Exit with code: ${code}`
+            }
         }
         if (signal) {
-            console.log(`Process Exit with signal: ${signal}`);
-            res.send(`Process Exit with signal: ${signal}`);
+            // console.log(`Process Exit with signal: ${signal}`);
+            // res.send(`Process Exit with signal: ${signal}`);
+            return {
+                statusCode: 500,
+                body: `Process Exit with signal: ${signal}`
+            }
         }
     });
 }
