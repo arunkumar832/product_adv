@@ -40,7 +40,7 @@
   "license": "0BSD",
   "scripts": {
     "start": "netlify-lambda build .netlify/functions && gatsby develop",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda build .netlify/functions && gatsby build",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && export PATH=$PATH:/opt/buildhome/python3.8/bin/ && netlify-lambda build .netlify/functions && gatsby build",
     "develop": "netlify-lambda build .netlify/functions && gatsby develop",
     "clean": "gatsby clean"
   },
