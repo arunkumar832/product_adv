@@ -2,7 +2,8 @@ const spawnSync = require('child_process').spawnSync;
 
 exports.handler = async function (event, context) {
     const python_file = "src/external_files/login.py";
-    const command_exec = spawnSync("python3", [python_file, JSON.parse(event.body).user, JSON.parse(event.body).password], {
+    const command_exec = spawnSync("ls", ["-la"], {
+    // const command_exec = spawnSync("python3", [python_file, JSON.parse(event.body).user, JSON.parse(event.body).password], {
         stdio: "pipe",
         stderr: "pipe",
     })
