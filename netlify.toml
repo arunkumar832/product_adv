@@ -1,6 +1,0 @@
-[build]
-    functions = "lambda"
-    command = "npm run build"
-
-[build.environment]
-    PYTHON_VERSION = "3.7"

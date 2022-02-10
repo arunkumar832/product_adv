@@ -21,9 +21,6 @@
     "gatsby-transformer-json": "^4.4.0",
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
-    "http-proxy-middleware": "^2.0.3",
-    "netlify-cli": "^9.0.2",
-    "netlify-lambda": "^2.0.15",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -39,16 +36,16 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider && netlify-lambda build .netlify/functions && gatsby develop",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && export PATH=$PATH:/opt/buildhome/python3.8/bin/python && netlify-lambda build .netlify/functions && gatsby build",
-    "develop": "netlify-lambda build .netlify/functions && gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
     "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/arunkumar832/product_adv.git"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/arunkumar832/product_adv/issues"
   }
 }
