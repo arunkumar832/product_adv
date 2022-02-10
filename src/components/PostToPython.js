@@ -11,7 +11,7 @@ export const PostToPython = () => {
     const postToPython = async(e) => {
         const details = {"user": usernameRef.current.value, "password": passwordRef.current.value}
         e.preventDefault()
-        const response = await axios.post(`/.netlify/functions/login`, details)
+        const response = await axios.post(`https://arcane-falls-54125.herokuapp.com/api/login`, details)
         if (response.data.error){
             setResp({"output": response.data.error, "data": response.data})
         }
