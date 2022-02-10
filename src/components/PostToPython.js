@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-import { Button } from './Button';
+import ReactiveButton from 'reactive-button';
 
 export const PostToPython = () => {
 
     const usernameRef = React.useRef();
     const passwordRef = React.useRef();
     const [respFromServer, setResp] = useState({"output": "", "data": ""});
+    const [state, setState] = useState('idle');
 
     const postToPython = async(e) => {
+        setState('loading');
         const details = {"user": usernameRef.current.value, "password": passwordRef.current.value}
         e.preventDefault()
         const response = await axios.post(`https://arcane-falls-54125.herokuapp.com/api/login`, details)
         if (response.data.error){
             setResp({"output": response.data.error, "data": response.data})
+            setState('error');
         }
         else{
             setResp({"output": response.data.response, "data": response.data})
+            setState('success');
         }
     }
     return (
@@ -49,7 +53,20 @@ export const PostToPython = () => {
                 </i>
                 }
                 <br /><br />
-                <Button type="submit" as="button" primary round>Submit-1</Button><br />
+                <ReactiveButton
+                    color="dark"
+                    buttonState={state}
+                    idleText={'Login'}
+                    loadingText={'Loading'}
+                    successText={'Login Success'}
+                    errorText={'Error in Login'}
+                    type={'submit'}
+                    shadow={true}
+                    rounded={true}
+                    size={'large'}
+                    animation={true}
+                    width="5cm"
+                />
             </form>
       </div>
     )
