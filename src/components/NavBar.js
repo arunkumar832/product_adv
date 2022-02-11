@@ -5,8 +5,10 @@ import { FaBars, FaTimes } from "react-icons/fa"
 import { IconContext } from "react-icons/lib"
 import { menuData } from "../data/MenuData"
 import { Button } from "./Button"
+import { useAuth0 } from "../utils/authentication"
 
 const NavBar = () => {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
   const [click, setClick] = useState(false)
   const handleClick = () => setClick(!click)
 
@@ -19,8 +21,14 @@ const NavBar = () => {
         </MobileBarIcon>
         <NavMenu onClick={handleClick} click={click}>
             { menuData.map((item, index) => (
+
                 <NavLink id="MenuItems" to={item.link} key={index}> {item.title} </NavLink>
             ))}
+            {!isAuthenticated && (
+              <NavRestrictedBtn id="MenuItems" onClick={() => loginWithRedirect({})}> Login/Register </NavRestrictedBtn>
+            )}
+
+            {isAuthenticated && <NavRestrictedBtn id="MenuItems" onClick={() => logout()}>Log out</NavRestrictedBtn>}
         </NavMenu>
         <NavBtn>
           <Button primary="true" round="true" to="/something"> Do Something </Button>
@@ -70,6 +78,29 @@ const NavLink = styled(Link)`
     }
   }
 `
+const NavRestrictedBtn = styled.button`
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  @media screen and (max-width: 768px){
+    width: 100%;
+    justify-content: center;
+    &:hover {
+      filter: brightness(100%);
+      color: black;
+      background: #fff;
+    }
+  }
+`
+
 const MobileBarIcon = styled.div`
   display: none;
 

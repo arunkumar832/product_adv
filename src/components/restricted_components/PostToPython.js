@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import ReactiveButton from 'reactive-button';
+import { useAuth0 } from '../../utils/authentication';
 
 export const PostToPython = () => {
-
+    const { loading, user } = useAuth0();
     const usernameRef = React.useRef();
     const passwordRef = React.useRef();
     const [respFromServer, setResp] = useState({"output": "", "data": ""});
     const [state, setState] = useState('idle');
 
+    if (loading || !user) {
+        return <div>Loading...</div>;
+      }
     const postToPython = async(e) => {
         setState('loading');
         const details = {"user": usernameRef.current.value, "password": passwordRef.current.value}
@@ -24,7 +28,12 @@ export const PostToPython = () => {
         }
     }
     return (
-        <div>
+        <center css={`
+            position: relative; left: 0%; top: 200px; ;
+            @media screen and (max-width: 768px){
+                position: relative; left: 0%; top: 70px;
+            }
+        `}>
             <br />
             <form onSubmit={postToPython}>
                 <label>Username: <input ref={usernameRef} required style={{
@@ -68,7 +77,7 @@ export const PostToPython = () => {
                     width="5cm"
                 />
             </form>
-      </div>
+    </center>
     )
   }
 

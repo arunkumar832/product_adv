@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from "react"
+import { Location } from "@reach/router"
+import App from "./src/components/restricted_components/App"
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => {
+  return (
+    <Location>
+      {location => <App element={element} location={location} />}
+    </Location>
+  )
+}

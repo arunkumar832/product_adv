@@ -1,9 +1,8 @@
-exports.createPages = async ({ actions }) => {
+exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
+  
+  if (page.path.match(/^\/account/)) {
+    page.matchPath = "/account/*"
+    createPage(page)
+  }
 }
