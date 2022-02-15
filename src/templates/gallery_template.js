@@ -56,6 +56,10 @@ const Gallery_template = () => {
                 )
             }
         });
+<<<<<<< HEAD
+=======
+        console.log(galleryArray)
+>>>>>>> d5b148f4c90b01a1cc66c231675002fe5f5ce861
         return galleryArray
     }
     return (
