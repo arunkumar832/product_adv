@@ -30,8 +30,8 @@ export const PostToPython = () => {
     return (
         <center css={`
             position: relative; left: 0%; top: 200px; ;
-            @media screen and (max-width: 768px){
-                position: relative; left: 0%; top: 70px;
+            @media screen and (max-width: 1299px){
+                position: relative; left: 0%; top:150px;
             }
         `}>
             <br />
