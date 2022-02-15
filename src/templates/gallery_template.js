@@ -35,7 +35,7 @@ const Gallery_template = () => {
         data.allMdx.nodes.forEach(node => {
             if (slug && slug.replaceAll("/", "") === node.slug.replaceAll("/", "")){
                 galleryArray.push(
-                    <div css={`padding: 50px 250px;`}>
+                    <ProductWrap>
                         <h1>Hi Slack Team, this is <span dangerouslySetInnerHTML={{__html: node.frontmatter.name}} /> page</h1>
                         <br /><br />
                         <ProductImage
@@ -52,18 +52,14 @@ const Gallery_template = () => {
                             title={node.name}
                             url={window.location.href}
                         />
-                    </div>
+                    </ProductWrap>
                 )
             }
         });
-<<<<<<< HEAD
-=======
-        console.log(galleryArray)
->>>>>>> d5b148f4c90b01a1cc66c231675002fe5f5ce861
         return galleryArray
     }
     return (
-        <div css={`background:forestgreen; color:white; width:100%; height:1500px;`}>
+        <div css={`background:forestgreen; color:white; width:100%; height:1800px;`}>
             <Layout>
                 {getNodeDetails(data)}
                 <Link to="/"> Go To Home Page </Link>
@@ -74,6 +70,13 @@ const Gallery_template = () => {
 
 export default Gallery_template
 
+const ProductWrap = styled.div`
+    padding: 50px 250px;
+    @media screen and (max-width: 768px){
+        padding: 15px 30px;
+        font-size: 10px;
+    }
+`
 const ProductImage = styled(GatsbyImage)`
     width: 100%;
     height: 25rem;
@@ -81,5 +84,8 @@ const ProductImage = styled(GatsbyImage)`
     filter: brightness(100%);
     transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 `
-const ProductContent = styled.p`   
+const ProductContent = styled.p`
+    @media screen and (max-width: 768px){
+        font-size: 14px;
+    }
 `
