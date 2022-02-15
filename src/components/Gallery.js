@@ -7,30 +7,33 @@ import { ImLocation } from 'react-icons/im'
 
 const Gallery = ({heading}) => {
     const data = useStaticQuery(graphql`
-    query GalleryQuery {
-        allGalleryJson {
-            nodes {
-                alt
-                button
-                button_url
-                name
-                img {
-                    childImageSharp {
-                        gatsbyImageData(layout: FULL_WIDTH)
+        query GalleryQuery {
+            allMdx {
+                nodes {
+                    slug
+                    frontmatter {
+                        alt
+                        button
+                        content
+                        name
+                        featuredImage {
+                            childImageSharp {
+                                gatsbyImageData(layout: FULL_WIDTH)
+                            }
+                        }
                     }
                 }
             }
-        }
-      }
+        }      
     `)
     function getGallery(data){
         const galleryArray = []
-        data.allGalleryJson.nodes.forEach((item, index) => {
-            const image = getImage(item.img.childImageSharp.gatsbyImageData);
+        data.allMdx.nodes.forEach((item, index) => {
+            const image = getImage(item.frontmatter.featuredImage.childImageSharp.gatsbyImageData);
             galleryArray.push(
                 <ProductCard key={index}>
                     <ProductImage
-                        alt={item.alt}
+                        alt={item.frontmatter.alt}
                         image={image}
                         loading="eager"
                     />
@@ -38,12 +41,12 @@ const Gallery = ({heading}) => {
                         <TextWrap>
                             <ImLocation/>
                             <ProductTitle>
-                                {item.name}
+                                {item.frontmatter.name}
                             </ProductTitle>
                         </TextWrap>
-                        <Button to={item.button_url} primary="true" round="true"
+                        <Button to={item.slug} primary="true" round="true"
                         css={`position: absolute; top: 320px; font-size: 12px;`}>
-                            {item.button}</Button>
+                            {item.frontmatter.button}</Button>
                     </ProductInfo>
                 </ProductCard>
             )
