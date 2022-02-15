@@ -44,7 +44,7 @@ const Gallery_template = () => {
                             loading="eager"
                         />
                         <br /><br />
-                        <h4>Description</h4>
+                        <ProductDesc>Description</ProductDesc>
                         <ProductContent>{node.frontmatter.content}</ProductContent>
                         <br /><br />
                         <Disqus
@@ -72,7 +72,7 @@ export default Gallery_template
 
 const ProductWrap = styled.div`
     padding: 50px 250px;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1299px){
         padding: 15px 30px;
         font-size: 10px;
     }
@@ -85,7 +85,12 @@ const ProductImage = styled(GatsbyImage)`
     transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 `
 const ProductContent = styled.p`
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1299px){
         font-size: 14px;
     }
+`
+const ProductDesc = styled.h4`
+    font-size: 15px;
+    font-weight: bolder;
+    line-height: 30px;
 `
