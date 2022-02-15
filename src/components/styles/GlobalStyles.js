@@ -7,4 +7,15 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    #disqus_thread {
+        position: relative;
+    }
+    #disqus_thread:after {
+        content: "";
+        display: block;
+        height:55px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background: forestgreen;
 `
