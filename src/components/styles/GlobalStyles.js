@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     * {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -17,5 +17,5 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         position: absolute;
         bottom: 0;
-        background: forestgreen;
+        background: #014421;
 `

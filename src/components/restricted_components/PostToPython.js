@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import ReactiveButton from 'reactive-button';
 import { useAuth0 } from '../../utils/authentication';
+import { MutatingDots } from 'react-loader-spinner';
+import styled from 'styled-components';
 
 export const PostToPython = () => {
     const { loading, user } = useAuth0();
@@ -11,7 +13,7 @@ export const PostToPython = () => {
     const [state, setState] = useState('idle');
 
     if (loading || !user) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
       }
     const postToPython = async(e) => {
         setState('loading');
@@ -28,15 +30,11 @@ export const PostToPython = () => {
         }
     }
     return (
-        <center css={`
-            position: relative; left: 0%; top: 200px; ;
-            @media screen and (max-width: 1299px){
-                position: relative; left: 0%; top:150px;
-            }
-        `}>
+        <SwitchContainer>
             <br />
             <form onSubmit={postToPython}>
-                <label>Username: <input ref={usernameRef} required style={{
+                <label>USERNAME: <input ref={usernameRef} required style={{
+                        boxShadow: "0 2px 4px 0 black, 0 3px 10px 0 black",
                         width: "5cm",
                         padding: "10px 20px",
                         boxSizing: "border-box",
@@ -44,20 +42,21 @@ export const PostToPython = () => {
                         margin: "8px 0"
                 }}/></label>
                 <br />
-                <label>Password: <input ref={passwordRef} required type="password" style={{
+                <label>PASSWORD: <input ref={passwordRef} required type="password" style={{
+                        boxShadow: "0 2px 4px 0 black, 0 3px 10px 0 black",
                         width: "5cm",
                         padding: "10px 20px",
                         boxSizing: "border-box",
                         border: "none",
-                        margin: "8px 7px"
+                        margin: "8px 0 50px"
                 }}/></label>
                 <br />
                 <i>Try with username and password as admin, admin</i><br /><br />
                 {respFromServer.output.includes("Successfully") ? 
-                <i style={{ color: "greenyellow", fontWeight: "bold" }}>
+                <i style={{ color: "green", fontWeight: "bold" }}>
                     {respFromServer.output}
                 </i> :
-                <i style={{ color: "maroon", fontWeight: "bold" }}>
+                <i style={{ color: "red", fontWeight: "bold" }}>
                     {respFromServer.output}
                 </i>
                 }
@@ -77,8 +76,48 @@ export const PostToPython = () => {
                     width="5cm"
                 />
             </form>
-    </center>
+    </SwitchContainer>
     )
   }
 
 export default PostToPython;
+
+const LoadingSpinner = styled.div`
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 3cm;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+`
+const SwitchContainer = styled.div`
+    background: aquamarine;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    right: 0;
+    width: 8cm;
+    height: 350px;
+    margin: auto;
+    overflow: visible;
+    @media screen and (max-width: 1299px){
+        top: 3cm;
+    }
+    @media screen and (max-width: 1100px){
+        top: -8cm;
+    }
+    @media screen and (max-width: 768px){
+        top: 0;
+    }
+    @media screen and (max-width: 400px){
+        top: 2cm;
+    }
+`

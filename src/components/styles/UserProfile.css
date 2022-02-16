@@ -1,0 +1,52 @@
+/*Profile Card 5*/
+.profile-card-5{
+    background-color: white;
+    width: 8cm;
+    border-radius: 5px;
+    position: absolute;
+    top: 30%;
+    left: 41%;
+    max-width: 65%;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;;
+}
+@media screen and (max-width: 1200px){
+    .profile-card-5{
+        top: 25%;
+        left: 33%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .profile-card-5{
+        top: 33%;
+        left: 18%;
+    }   
+}
+.profile-card-5 .card-img-block {
+    width: 87%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+
+}
+.profile-card-5 .card-img-block img{
+    border-radius:5px;
+    box-shadow: 0 2px 4px 0 black, 0 3px 10px 0 black;;
+}
+.profile-card-5 .btn{
+    border-radius: 7px;
+    text-transform:uppercase;
+    font-size:12px;
+    background-color: tomato;
+    padding:17px 20px;
+    text-decoration: none;
+    color: white;
+}
+.profile-card-5 h5{
+    color:#4E5E30;
+    font-weight:600;
+}
+.profile-card-5 p{
+    font-size:14px;
+    font-weight:300;
+}

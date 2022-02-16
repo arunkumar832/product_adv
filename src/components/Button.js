@@ -7,36 +7,21 @@ const RestrictPage = () => {
     const { isAuthenticated, loginWithRedirect } = useAuth0()
     return (
         <div>
-            <center css={`position: absolute; left: 24%; top: 35%`}>
+            <center>
                 {!isAuthenticated && (
-                    <>
-                    <p css={`color:floralwhite; font-weight: bold; font-size: 4rem; width: 60rem`}>Kindly Login before you proceed</p><br />
-                    <NavRestrictedBtn onClick={() => loginWithRedirect({})} primary big round> Login/Register </NavRestrictedBtn>
-                    </>
+                    <div style={{position: "relative", top: "150px", bottom: 0}}>
+                    <LoginAlert>Kindly Login before you proceed</LoginAlert><br />
+                    <NavRestrictedBtn onClick={() => loginWithRedirect({})} primary round> Login/Register </NavRestrictedBtn>
+                    </div>
                 )}
             </center>
-            <center css={`
-                position: absolute; left: 37%; top: 17%;
-                @media screen and (max-width: 768px){
-                    position: absolute; left: 10%; top: -200px%;
-                }
-            `}>
+            <center>
                 {isAuthenticated && (
                     <>
-                    <Button class="mobileVer" to="/account/execute" primary big round css={`
-                        @media screen and (max-width: 768px){
-                            font-size: 10px;
-                            display: inline-block;
-                            margin: 0 1rem;
-                        }
-                    `}>View Python Example</Button>{` `}
-                    <Button class="mobileVer" to="/account/profile" primary big round css={`
-                        @media screen and (max-width: 768px){
-                            font-size: 10px;
-                            margin: 0 1rem;
-                            display: inline-block;
-                        }
-                    `}>View Profile</Button>
+                    <SwitchButtons>
+                        <Button to="/account/execute" primary round>View Python Example</Button>{` `}
+                        <Button to="/account/profile" primary round>View Profile</Button>
+                    </SwitchButtons>
                     </>
                 )}
             </center>
@@ -47,11 +32,12 @@ const RestrictPage = () => {
 export default RestrictPage
 
 export const Button = styled(Link)`
-    background: ${({ primary }) => (primary ? '#F26A2E' : '#077BF1')};
+    background: ${({ primary }) => (primary ? 'tomato' : '#077BF1')};
     white-space: nowrap;
     padding: ${({ big }) => (big ? '14px 35px' : '10px 32px')};
     color: #fff;
     font-size: ${({ big }) => (big ? '20px' : '16px')};
+    font-weight: bold;
     outline: none;
     border: none;
     min-width: 100px;
@@ -67,21 +53,41 @@ export const Button = styled(Link)`
 `
 
 const NavRestrictedBtn = styled.button`
-    background: ${({ primary }) => (primary ? '#F26A2E' : '#077BF1')};
+    background: ${({ primary }) => (primary ? 'tomato' : '#077BF1')};
     white-space: nowrap;
     padding: ${({ big }) => (big ? '14px 35px' : '10px 32px')};
     color: #fff;
     font-size: ${({ big }) => (big ? '20px' : '16px')};
+    font-weight: bold;
     outline: none;
     border: none;
     min-width: 100px;
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s !important;
-    border-radius: ${({ round }) => (round ? '50px' : 'none')};
+    border-radius: ${({ round }) => (round ? '50px' : 'none')};   
 
     &:hover {
         background: ${({ primary }) => (primary ? '#077BF1': '#F26A2E')};
         transform: translateY(-2px);
+    }
+`
+const SwitchButtons = styled.div`
+    line-height: 3;
+`
+const LoginAlert = styled.p`
+    color:floralwhite;
+    font-weight: bold;
+    font-size: 4rem;
+    width: 60rem;
+    @media screen and (max-width: 1299px){
+        width: 40rem;
+        text-align: center;
+        font-size: 40px;
+    }
+    @media screen and (max-width: 768px){
+        width: 25rem;
+        text-align: center;
+        font-size: 40px;
     }
 `
