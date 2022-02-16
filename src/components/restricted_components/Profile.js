@@ -8,7 +8,7 @@ import styled from "styled-components";
 const Profile = () => {
   const { loading, user } = useAuth0();
 
-  if (!loading || user) {
+  if (loading || !user) {
     return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
   }
 
