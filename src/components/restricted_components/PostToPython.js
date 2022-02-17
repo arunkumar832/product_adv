@@ -12,7 +12,7 @@ export const PostToPython = () => {
     const [respFromServer, setResp] = useState({"output": "", "data": ""});
     const [state, setState] = useState('idle');
 
-    if (!loading || user) {
+    if (loading || !user) {
         return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
       }
     const postToPython = async(e) => {
