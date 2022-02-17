@@ -8,7 +8,7 @@ import styled from "styled-components"
 const Layout = ({ children }) => {
   const { loading } = useAuth0()
 
-  if (loading) {
+  if (!loading) {
     return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
   }
 
