@@ -84,13 +84,14 @@ export default Subscribe
 
 
 const SubscribeContainer = styled.div`
+    clip-path: polygon(0 0, 100% 10%, 100% 70vh, 50% 100%, 0 70vh);
     background: linear-gradient(180deg,
         rgba(0, 0, 0, 0.5) 0%,
         rgba(0, 0, 0, 0.5) 35%,
         rgba(0, 0, 0, 0.1) 100%),
         url(${subscibe_bg}) no-repeat center;
     background-size: cover;
-    height: 650px;
+    height: 80vh;
     width: 100%;
     padding: 2rem calc((100vw - 900px)/2);
     color: #fff;

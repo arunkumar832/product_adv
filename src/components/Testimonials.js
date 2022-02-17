@@ -42,9 +42,9 @@ const Testimonials = () => {
 
     return (
         <TestimonialsContainer>
-            <TopLine>
+            {/* <TopLine>
                 Testimonials
-            </TopLine>
+            </TopLine> */}
             <Description>
                 What People are Saying
             </Description>
@@ -70,22 +70,17 @@ const Testimonials = () => {
 export default Testimonials
 
 const TestimonialsContainer = styled.div`
+clip-path: polygon(50% 0%,50% 0%,100% 8%,100% 95%,80% 100%,20% 100%,0 95%,0 8%);
     width: 100%;
-    background: darkkhaki;
+    background: linear-gradient(to top, greenyellow, aqua);;
     color: #000;
-    padding: 2rem calc((100vw - 1000px)/2);
-    height: 50%;
-`
-const TopLine = styled.p`
-    color: #077bf1;
-    font-size: 1rem;
-    padding-left: 2rem;
-    margin-bottom: 0.75rem;
+    padding: 8rem calc((100vw - 1000px)/2);
+    height: 70%;
 `
 const Description = styled.p`
     text-align: start;
     padding-left: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     font-size: clamp(1.5rem, 5vw, 2rem);
     font-weight: bold;
 `

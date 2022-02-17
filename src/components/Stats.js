@@ -25,7 +25,8 @@ export default Stats
 
 const StatsContainer = styled.div`
     width: 100%;
-    background: beige;
+    max-height: 100vh;
+    background: #fff;
     color: #000;
     display: flex;
     flex-direction: column;
@@ -54,7 +55,7 @@ const Wrapper = styled.div`
 const StatsBox = styled.div`
     height: 100%;
     width: 100%;
-    padding: 2rem;
+    padding: 0.5rem 3rem;
 `
 const Icon = styled.div`
     color: blue;

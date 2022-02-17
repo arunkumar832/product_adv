@@ -52,24 +52,28 @@ export const Button = styled(Link)`
     }
 `
 
-const NavRestrictedBtn = styled.button`
-    background: ${({ primary }) => (primary ? 'tomato' : '#077BF1')};
-    white-space: nowrap;
-    padding: ${({ big }) => (big ? '14px 35px' : '10px 32px')};
-    color: #fff;
-    font-size: ${({ big }) => (big ? '20px' : '16px')};
-    font-weight: bold;
-    outline: none;
+export const NavRestrictedBtn = styled.button`
+    background: transparent;
     border: none;
-    min-width: 100px;
-    cursor: pointer;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    transition: 0.3s !important;
-    border-radius: ${({ round }) => (round ? '50px' : 'none')};   
-
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
     &:hover {
-        background: ${({ primary }) => (primary ? '#077BF1': '#F26A2E')};
-        transform: translateY(-2px);
+        filter: brightness(100%);
+        color: black;
+        background: #fff;
+        border-radius: 5px;
+        height: 60%;
+    };
+    @media screen and (max-width: 768px){
+        width: 100%;
+        justify-content: center;
     }
 `
 const SwitchButtons = styled.div`

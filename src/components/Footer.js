@@ -41,11 +41,13 @@ const Footer = () => {
 export default Footer
 
 const FooterContainer = styled.div`
-    padding: 2rem calc((100vw - 900px)/2);
+    clip-path: polygon(50% 15%, 100% 0, 100% 100%, 0 100%, 0 0);
+    padding: 5rem calc((100vw - 900px)/2);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     color: #000;
-    background: beige;
+    background: cyan;
+    max-height: 70vh;
 `
 const FooterDesc = styled.div`
     padding: 0 2rem;

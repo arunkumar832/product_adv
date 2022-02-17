@@ -64,9 +64,9 @@ const Gallery = ({heading}) => {
 export default Gallery
 
 const ProductsContainer = styled.div`
-    min-height: 100vh;
+    min-height: 50vh;
     padding: 2rem calc((100vw - 1100px)/2);
-    background: beige;
+    background: #fff;
     color: #fff;
     @media screen and (max-width: 1200px){
         padding: 2rem calc((100vw - 700px)/2);

@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { IconContext } from "react-icons/lib"
 import { menuData } from "../data/MenuData"
-import { Button } from "./Button"
+import { Button, NavRestrictedBtn } from "./Button"
 import { useAuth0 } from "../utils/authentication"
 
 const NavBar = () => {
@@ -41,6 +41,7 @@ const NavBar = () => {
 export default NavBar
 
 const Nav = styled.nav`
+  font-size: 20px;
   background: transparent;
   height: 80px;
   display: flex;
@@ -58,6 +59,12 @@ const CompanyName = styled(Link)`
   height: 100%;
   cursor: pointer;
   font-weight: bolder;
+  &:hover {
+    filter: brightness(100%);
+    color: black;
+    background: #fff;
+    border-radius: 5px;
+}
 `
 const NavLink = styled(Link)`
   font-weight: bolder;
@@ -68,6 +75,13 @@ const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  &:hover {
+      filter: brightness(100%);
+      color: black;
+      background: #fff;
+      border-radius: 5px;
+      height: 60%;
+  }
   @media screen and (max-width: 768px){
     width: 100%;
     justify-content: center;
@@ -78,29 +92,6 @@ const NavLink = styled(Link)`
     }
   }
 `
-const NavRestrictedBtn = styled.button`
-  background: transparent;
-  border: none;
-  font-size: 1rem;
-  font-weight: bolder;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
-  @media screen and (max-width: 768px){
-    width: 100%;
-    justify-content: center;
-    &:hover {
-      filter: brightness(100%);
-      color: black;
-      background: #fff;
-    }
-  }
-`
-
 const MobileBarIcon = styled.div`
   display: none;
 
