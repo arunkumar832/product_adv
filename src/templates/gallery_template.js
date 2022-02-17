@@ -59,7 +59,7 @@ const Gallery_template = () => {
         return galleryArray
     }
     return (
-        <div css={`background:#014421; color:white; width:100%; height:1800px;`}>
+        <div css={`background:linear-gradient(to bottom,darkblue,lightsalmon); color:white; width:100%; height:1800px;`}>
             <Layout>
                 {getNodeDetails(data)}
                 <Link to="/"> Go To Home Page </Link>

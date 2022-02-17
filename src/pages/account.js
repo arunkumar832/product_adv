@@ -7,7 +7,7 @@ import RestrictPage from "../components/Button"
 import PostToPython from "../components/restricted_components/PostToPython"
 
 const Account = () => (
-  <div css={`background:#014421; width: 100%; height: 1000px`}>
+  <div css={`background:linear-gradient(to bottom,darkblue,lightsalmon); width: 100%; height: 1000px`}>
     <Layout>
       <Router>
         <PrivateRoute path="/account/profile" component={Profile} />

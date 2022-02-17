@@ -18,5 +18,5 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         position: absolute;
         bottom: 0;
-        background: #014421;
+        background: linear-gradient(to bottom,#b06d7d,#b4737e);
 `
