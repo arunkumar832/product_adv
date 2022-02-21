@@ -2,14 +2,13 @@ import { Link } from "@reach/router";
 import React from "react"
 import { useAuth0 } from "../../utils/authentication";
 import "../styles/UserProfile.css"
-import { MutatingDots } from "react-loader-spinner";
-import styled from "styled-components";
+import { PreLoader } from "../Button";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
 
   if (loading || !user) {
-    return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
+    return <PreLoader />
   }
 
   return(
@@ -37,15 +36,3 @@ const Profile = () => {
 }
 
 export default Profile
-
-const LoadingSpinner = styled.div`
-    display: inline-block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 3cm;
-    right: 0;
-    width: 200px;
-    height: 100px;
-    margin: auto;
-`

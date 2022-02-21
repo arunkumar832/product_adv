@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "gatsby"
 import React from 'react'
 import { useAuth0 } from "../utils/authentication";
+import Loader from "../assets/gifs/preloader.gif"
 
 const RestrictPage = () => {
     const { isAuthenticated, loginWithRedirect } = useAuth0()
@@ -93,5 +94,23 @@ const LoginAlert = styled.p`
         width: 25rem;
         text-align: center;
         font-size: 40px;
+    }
+`
+export const PreLoader = styled.div`
+    background-image: url("${Loader}");
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 500px;
+    margin-top: -300px;
+    margin-left: -350px;
+    @media screen and (max-width:720px){
+    width: 350px;
+    height: 250px;
+    margin-top: -200px;
+    margin-left: -175px;
     }
 `

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import ReactiveButton from 'reactive-button';
 import { useAuth0 } from '../../utils/authentication';
-import { MutatingDots } from 'react-loader-spinner';
 import styled from 'styled-components';
+import { PreLoader } from '../Button';
 
 export const PostToPython = () => {
     const { loading, user } = useAuth0();
@@ -13,7 +13,7 @@ export const PostToPython = () => {
     const [state, setState] = useState('idle');
 
     if (loading || !user) {
-        return <LoadingSpinner><MutatingDots color="#00BFFF"/></LoadingSpinner>
+        return <PreLoader />
       }
     const postToPython = async(e) => {
         setState('loading');
@@ -53,7 +53,7 @@ export const PostToPython = () => {
                 <br />
                 <i>Try with username and password as admin, admin</i><br /><br />
                 {respFromServer.output.includes("Successfully") ? 
-                <i style={{ color: "green", fontWeight: "bold" }}>
+                <i style={{ color: "darkblue", fontWeight: "bold" }}>
                     {respFromServer.output}
                 </i> :
                 <i style={{ color: "red", fontWeight: "bold" }}>
@@ -82,19 +82,8 @@ export const PostToPython = () => {
 
 export default PostToPython;
 
-const LoadingSpinner = styled.div`
-    display: inline-block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 3cm;
-    right: 0;
-    width: 200px;
-    height: 100px;
-    margin: auto;
-`
 const SwitchContainer = styled.div`
-    background: aquamarine;
+    background: deepskyblue;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 black, 0 6px 20px 0 black;
     display: inline-block;

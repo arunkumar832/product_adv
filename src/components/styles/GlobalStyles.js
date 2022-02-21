@@ -18,6 +18,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         position: absolute;
         bottom: 0;
-        background: rgba(0, 0, 0, 0) linear-gradient(rgb(162, 102, 129), rgb(169, 105, 127)) repeat scroll 0% 0%;
+        background: rgba(0, 0, 0, 0) linear-gradient(to bottom,lightseagreen,lightyellow) repeat scroll 0% 0%;
     }
 `

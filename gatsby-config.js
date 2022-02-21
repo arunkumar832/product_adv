@@ -57,7 +57,7 @@ module.exports = {
       options: {
           shortname: `slackteam`
       }
-  }
+    }
     // -----Updated Plugin details-----
   ]
 }
